@@ -1,0 +1,2 @@
+- unique ability for each class
+- user customizable(stats) class?
