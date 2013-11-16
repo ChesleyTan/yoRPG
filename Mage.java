@@ -6,10 +6,15 @@ public class Mage extends Character{
 	public Mage(String name){
 		this.name = name;
 		hp = 95;
+		baseHp = hp;
 		attack = 30;
+		baseAttack = attack;
 		spAttack = 80;
+		baseSpAttack = spAttack;
 		defense = 25;
+		baseDefense = defense;
 		spDefense = 50;
+		baseSpDefense = spDefense;
 		evasiveness = 50;
 		multiplier = 1.0;
 	}
@@ -17,12 +22,14 @@ public class Mage extends Character{
 		return spAttack(target);
 	}
 	public void specialize(){
-		multiplier = 2.5;
-		defense = 20;
+		spAttack = baseSpAttack + 40;
+		defense = baseDefense - 10;
+		spDefense = baseSpDefense - 10;
 	}
 	public void normalize(){
-		multiplier = 2.0;
-		defense = 25;
+		spAttack = baseSpAttack;
+		defense = baseDefense;
+		spDefense = baseSpDefense;
 	}
 
 }

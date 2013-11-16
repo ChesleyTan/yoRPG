@@ -5,6 +5,7 @@
 public abstract class Character{
 	protected String name;
 	protected int hp, attack, spAttack, defense, spDefense;
+	protected int baseHp, baseAttack, baseSpAttack, baseDefense, baseSpDefense;// These vars keep track of the original stat values before any changes
 	protected double multiplier, evasiveness;
 	// Accessor Methods //
 	public int getDefense(){
@@ -53,7 +54,7 @@ public abstract class Character{
 			target.lowerHP(damage);
 		return damage;
 	}
-	public abstract int primaryAttack(Character target);
+	public abstract int primaryAttack(Character target);// Differentiates whether attack or spAttack should be used
 	public abstract void specialize();
 	public abstract void normalize();
 	public static String about(){
