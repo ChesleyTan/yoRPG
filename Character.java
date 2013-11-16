@@ -6,7 +6,7 @@ public abstract class Character{
 	protected String name;
 	protected int hp, attack, spAttack, defense, spDefense;
 	protected int baseHp, baseAttack, baseSpAttack, baseDefense, baseSpDefense;// These vars keep track of the original stat values before any changes
-	protected double multiplier, evasiveness;
+	protected double multiplier, evasiveness;								   // If we make the base stats final, we have to initialize the changeable variables outside the constructor and run a super() to set these base vars because the super() has to be the first line in the constructor and finals can only be initialized in declaration or a constructor
 	// Accessor Methods //
 	public int getDefense(){
 		return defense;
@@ -14,8 +14,11 @@ public abstract class Character{
 	public int getSpDefense(){
 		return defense;
 	}
-	public int getHP(){
+	public int getHp(){
 		return hp;
+	}
+	public int getBaseHp(){
+		return baseHp;
 	}
 	public double getEvasiveness(){
 		return evasiveness;
