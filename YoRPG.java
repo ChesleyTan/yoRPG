@@ -15,6 +15,8 @@ public class YoRPG {
     private int moveCount;
     private boolean gameOver;
     private int difficulty;
+	private static int points;// Currency for shop
+	private static int score;
 
     private InputStreamReader isr;
     private BufferedReader in;
@@ -116,12 +118,21 @@ public class YoRPG {
 		// ...but if you get hit, you take more damage.
 		try {
 		    System.out.println( "\nDo you feel lucky?" );
-		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
+		    System.out.println( "\t1: Nay.\n\t2: Aye!\n\t3: Retreat to the shop!" );
 		    i = Integer.parseInt( in.readLine() );
 		}
 		catch ( IOException e ) { }
 
-		if ( i == 2 )
+		if (i == 3){
+			points += Shop.show(pat, points);
+			try {
+					System.out.println( "\nDo you feel lucky?" );
+					System.out.println( "\t1: Nay.\n\t2: Aye!" );
+					i = Integer.parseInt( in.readLine() );
+				}
+			catch ( IOException e ) { }
+		}
+		else if ( i == 2 )
 		    pat.specialize();
 		else
 		    pat.normalize();
@@ -130,6 +141,10 @@ public class YoRPG {
 		d2 = smaug.primaryAttack( pat );
 
 		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println(pat.getDefense());
+		System.out.println(pat.getSpDefense());
+		System.out.println(pat.getAttack());
+		System.out.println(pat.getSpAttack());
 		if (d1 == 0){
 			System.out.println("Ye Olde Monster evaded the attack!");
 			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
@@ -157,11 +172,14 @@ public class YoRPG {
 				    "You cut ye olde monster down, but " +
 				    "with its dying breath ye olde monster " +
 				    "laid a fatal blow upon thy skull." );
+		score += 10;
 		return false;
 	    }
 	    //option 2: you slay the beast
 	    else if ( !smaug.isAlive() ) {
 		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+		score += 10;
+		points += 10;
 		return true;
 	    }
 	    //option 3: the beast slays you
@@ -190,6 +208,7 @@ public class YoRPG {
 	}
 
 	System.out.println( "Thy game doth be over." );
+	System.out.println("Your score was: " + score + ".");
 
     }//end main
 

@@ -1,3 +1,5 @@
-- ninja class, robot class
+- Implement unlimited rounds
+- Need to make shop less OP
+~~~~Probably not ~~~~
 - unique ability for each class
 - user customizable(stats) class?
