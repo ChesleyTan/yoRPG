@@ -1,13 +1,14 @@
-
 import java.io.*;
 import java.util.*;
 
 public class YoRPG {
 
+	static int wins = 0;
+	
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
     //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 5;
+    public final static int MAX_ENCOUNTERS = 10;
 
     private Character pat;   
     private Character smaug; 
@@ -69,7 +70,7 @@ public class YoRPG {
 	}
 	catch ( IOException e ) { }
 	
-	s = "Intrepid adventurer, what doth thy call thyself? (State your name): ";
+	s = "\nIntrepid adventurer, what doth thy call thyself? (State your name): ";
 	System.out.print( s );
 
 	try {
@@ -91,7 +92,99 @@ public class YoRPG {
 
     }//end newGame()
 
+	public boolean bossPlayTurn() {
+		int i = 1;
+		int d1, d2;
+		smaug = new Balrog();
+		
+		System.out.println( "Your braveries have awoken the Balrog!");
+		System.out.println("Beware traveller, for the Balrog isn't as meager as the monsters!");
 
+	    while( smaug.isAlive() && pat.isAlive() ) {
+
+		
+		// Give user the option of preparing in a ready stance:
+		// If you land a hit, you incur greater damage,
+		// ...but if you get hit, you take more damage.
+		try {
+		    System.out.println( "\nBrave " + pat.getName() + ", do you feel lucky?" );
+		    System.out.println( "\t1: Nay.\n\t2: Aye!\n\t3: Retreat to the shop!" );
+		    i = Integer.parseInt( in.readLine() );
+		}
+		catch ( IOException e ) { }
+
+		if (i == 3){
+			points += Shop.show(pat, points);
+			System.out.println();
+			try {
+					System.out.println("Your Stats:");
+					System.out.println("*****************************************");
+					System.out.println("Wins: " + wins);
+					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)));
+					System.out.println("Defense: " + pat.getDefense());
+					System.out.println("SP Defense: " + pat.getSpDefense());
+					System.out.println("Attack: " + pat.getAttack());
+					System.out.println("SP Attack: " + pat.getSpAttack());
+					System.out.println("*****************************************");
+					System.out.println( "\nDo you feel lucky?" );
+					System.out.println( "\t1: Nay.\n\t2: Aye!" );
+					i = Integer.parseInt( in.readLine() );
+				}
+			catch ( IOException e ) { }
+		}
+		else if ( i == 2 )
+		    pat.specialize();
+		else
+		    pat.normalize();
+
+		d1 = pat.primaryAttack( smaug );
+		d2 = smaug.primaryAttack( pat );
+
+		System.out.println("=========================================");
+		if (d1 == 0){
+			System.out.println("The Balrog evaded the attack!");
+			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(smaug) + "\n");
+		}
+		else{
+			System.out.println( pat.getName() + " dealt " + d1 +
+				    " points of damage.");
+			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(smaug) + "\n");
+		}
+		if (d2 == 0){
+			System.out.println(pat.getName() + " evaded the monster's attack!");
+			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
+		}
+		else{
+			System.out.println( "The Balrog hit back for " + d2 +
+				    " points of damage.");
+			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
+	    }
+		System.out.println("=========================================");
+		}//end while
+		
+		//option 1: you & the monster perish
+	    if ( !smaug.isAlive() && !pat.isAlive() ) {
+		System.out.println("'Twas an epic battle, to be sure... ");
+		System.out.println("You cut The Balrog down,");
+		System.out.println("but ou were no match for the creature of the caves." );
+		score += 10;
+		return false;
+	    }
+	    //option 2: you slay the beast
+	    else if ( !smaug.isAlive() ) {
+		System.out.println( "HuzzaaH! You raise your fists and crush the skull of the Balrog!" );
+		score += 10;
+		points += 15;
+		wins++;
+		return true;
+	    }
+	    //option 3: the beast slays you
+	    else{ //( !pat.isAlive() )
+		System.out.println( "You were no match for the Balrog!" );
+		return false;
+	    }
+	}//end boss	
+		
     /*=============================================
       boolean playTurn -- simulates a round of combat
       pre:  Warrior pat has been initialized
@@ -103,12 +196,25 @@ public class YoRPG {
 	int i = 1;
 	int d1, d2;
 
+	if (wins == 3 || wins == 6){
+		bossPlayTurn();
+	}
+	if (pat.isAlive()){
 	if ( Math.random() >= ( difficulty / 3.0 ) )
-	    System.out.println( "Nothing to see here. Move along!" );
+	    System.out.println( "\nNothing to see here. Move along!" );
 
 	else {
-	    System.out.println( "Lo, yonder enemy approacheth!" );
-
+	    System.out.println( "Lo, yonder monster approacheth!" );
+		System.out.println();
+		System.out.println("Your Stats:");
+		System.out.println("*****************************************");
+		System.out.println("Wins: " + wins);
+		System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
+		System.out.println("Defense: " + pat.getDefense());
+		System.out.println("SP Defense: " + pat.getSpDefense());
+		System.out.println("Attack: " + pat.getAttack());
+		System.out.println("SP Attack: " + pat.getSpAttack());
+		System.out.println("*****************************************");
 	    smaug = new Monster();
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
@@ -125,7 +231,17 @@ public class YoRPG {
 
 		if (i == 3){
 			points += Shop.show(pat, points);
+			System.out.println();
 			try {
+					System.out.println("Your Stats:");
+					System.out.println("*****************************************");
+					System.out.println("Wins: " + wins);
+					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)));
+					System.out.println("Defense: " + pat.getDefense());
+					System.out.println("SP Defense: " + pat.getSpDefense());
+					System.out.println("Attack: " + pat.getAttack());
+					System.out.println("SP Attack: " + pat.getSpAttack());
+					System.out.println("*****************************************");
 					System.out.println( "\nDo you feel lucky?" );
 					System.out.println( "\t1: Nay.\n\t2: Aye!" );
 					i = Integer.parseInt( in.readLine() );
@@ -140,46 +256,43 @@ public class YoRPG {
 		d1 = pat.primaryAttack( smaug );
 		d2 = smaug.primaryAttack( pat );
 
-		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(pat.getDefense());
-		System.out.println(pat.getSpDefense());
-		System.out.println(pat.getAttack());
-		System.out.println(pat.getSpAttack());
+		System.out.println("=========================================");
 		if (d1 == 0){
-			System.out.println(smaug.getName() + " evaded the attack!");
-			System.out.println(smaug.getName() + " Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("Ye Olde Monster evaded the attack!");
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
 		}
 		else{
 			System.out.println( pat.getName() + " dealt " + d1 +
 				    " points of damage.");
-			System.out.println(smaug.getName() + " Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
 		}
 		if (d2 == 0){
-			System.out.println(pat.getName() + " evaded the monster's attack!");
+			System.out.println(pat.getName() + " evaded the enemy's attack!");
 			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
 		}
 		else{
-			System.out.println( smaug.getName() + " hit back for " + d2 +
+			System.out.println( "Ye Olde Monster hit back for " + d2 +
 				    " points of damage.");
 			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
 	    }
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("=========================================");
 		}//end while
 
 	    //option 1: you & the monster perish
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
-				    "You cut ye enemy down, but " +
-				    "with its dying breath ye enemy " +
+				    "You cut ye olde monster down, but " +
+				    "with its dying breath ye olde monster " +
 				    "laid a fatal blow upon thy skull." );
 		score += 10;
 		return false;
 	    }
 	    //option 2: you slay the beast
 	    else if ( !smaug.isAlive() ) {
-		System.out.println( "HuzzaaH! " + smaug.getName() + " hath been slain!" );
+		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
 		score += 10;
-		points += 10;
+		points += 15;
+		wins++;
 		return true;
 	    }
 	    //option 3: the beast slays you
@@ -188,7 +301,7 @@ public class YoRPG {
 		return false;
 	    }
 	}//end else
-
+	}
 	return true;
     }//end playTurn()
     // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -200,7 +313,7 @@ public class YoRPG {
 
 	int encounters = 0;
 
-	while( encounters < MAX_ENCOUNTERS ) {
+	while( encounters <= MAX_ENCOUNTERS ) {
 	    if ( !game.playTurn() )
 		break;
 	    encounters++;

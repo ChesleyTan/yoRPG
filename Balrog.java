@@ -2,20 +2,20 @@
 //pd 9
 //HW#25
 //2013-11-14
-public class Monster extends Character{
-	public Monster(){
-		hp = 150;
+public class Balrog extends Character{
+	public Balrog(){
+		hp = 185;
 		baseHp = hp;
-		attack = (int) (25 * Math.random()) + 40;
+		attack = (int) (25 * Math.random()) + 65;
 		baseAttack = attack;
-		spAttack = (int) (25 * Math.random()) + 40;
+		spAttack = (int) (25 * Math.random()) + 65;
 		baseSpAttack = spAttack;
-		defense = 20;
+		defense = 30;
 		baseDefense = defense;
-		spDefense = 20;
+		spDefense = 30;
 		baseSpDefense = spDefense;
-		evasiveness = 4;
-		multiplier = 1;
+		evasiveness = 5;
+		multiplier = 1.5;
 	}
 	
 	public int primaryAttack(Character target){

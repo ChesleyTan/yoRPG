@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Shop{
 	public static int show(Character c, int pointsAvailable){
 		Scanner scan1 = new Scanner(System.in);
-		System.out.println("You have " + pointsAvailable + " points available to spend.");
+		System.out.println("\nYou have " + pointsAvailable + " points available to spend.");
 		System.out.println( "(1)[10 points] Heal Potion - Heals health to full.\n" + 
 				"(2)[10 points] Strength Potion - Increases attack and special attack.\n" +
 				"(3)[10 points] Defense Potion - Increases defense and special defense.\n" +
