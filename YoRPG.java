@@ -116,7 +116,7 @@ public class YoRPG {
 		if (i == 3){
 			int expense = Shop.show(pat, points);
 			if (expense == -200){
-				pat = transform(pat);
+				pat = Hero.transform(pat);
 				points += expense;
 			}
 			else
@@ -221,7 +221,7 @@ public class YoRPG {
 		if (i == 3){
 			int expense = Shop.show(pat, points);
 			if (expense == -200){
-				pat = transform(pat);
+				pat = Hero.transform(pat);
 				points += expense;
 			}
 			else
@@ -323,16 +323,6 @@ public class YoRPG {
 		System.out.println("Attack: " + pat.getAttack());
 		System.out.println("SP Attack: " + pat.getSpAttack());
 		System.out.println("*****************************************");		
-	}
-	public Character transform(Character c){
-		c = new Hero(c.getName(),c.getAttack(),c.getSpAttack(),c.getDefense(),c.getSpDefense());
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("Your body starts to glow a bright bluish-white as your enemy stands petrified. \n" + 
-			"Your body is becoming larger and more imposing...\n" +
-			"Your eyes glow a dark red...\n" + 
-			"Congratulations, you've attained your ultimate power, your Hero stage.");
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		return c;
 	}
 
 }//end class YoRPG
