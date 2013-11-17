@@ -111,7 +111,7 @@ public class YoRPG {
 		// If you land a hit, you incur greater damage,
 		// ...but if you get hit, you take more damage.
 		try {
-		    System.out.println( "Do you feel lucky?" );
+		    System.out.println( "\nDo you feel lucky?" );
 		    System.out.println( "\t1: Nay.\n\t2: Aye!" );
 		    i = Integer.parseInt( in.readLine() );
 		}
@@ -125,18 +125,27 @@ public class YoRPG {
 		d1 = pat.primaryAttack( smaug );
 		d2 = smaug.primaryAttack( pat );
 
-		if (d1 == 0)
+		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		if (d1 == 0){
 			System.out.println("Ye Olde Monster evaded the attack!");
-		else
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+		}
+		else{
 			System.out.println( pat.getName() + " dealt " + d1 +
 				    " points of damage.");
-
-		if (d2 == 0)
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+		}
+		if (d2 == 0){
 			System.out.println(pat.getName() + " evaded the monster's attack!");
-		else
+			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
+		}
+		else{
 			System.out.println( "Ye Olde Monster hit back for " + d2 +
 				    " points of damage.");
-	    }//end while
+			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
+	    }
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}//end while
 
 	    //option 1: you & the monster perish
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {

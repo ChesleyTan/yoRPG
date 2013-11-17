@@ -15,7 +15,7 @@ public class Mage extends Character{
 		baseDefense = defense;
 		spDefense = 50;
 		baseSpDefense = spDefense;
-		evasiveness = 50;
+		evasiveness = 5;
 		multiplier = 1.0;
 	}
 	public int primaryAttack(Character target){
