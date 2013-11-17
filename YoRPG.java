@@ -117,15 +117,7 @@ public class YoRPG {
 			points += Shop.show(pat, points);
 			System.out.println();
 			try {
-					System.out.println("Your Stats:");
-					System.out.println("*****************************************");
-					System.out.println("Wins: " + wins);
-					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0) + "%"));
-					System.out.println("Defense: " + pat.getDefense());
-					System.out.println("SP Defense: " + pat.getSpDefense());
-					System.out.println("Attack: " + pat.getAttack());
-					System.out.println("SP Attack: " + pat.getSpAttack());
-					System.out.println("*****************************************");
+					statSummary(pat);
 					System.out.println( "\nDo you feel lucky?" );
 					System.out.println( "\t1: Nay.\n\t2: Aye!" );
 					i = Integer.parseInt( in.readLine() );
@@ -205,16 +197,8 @@ public class YoRPG {
 
 	    System.out.println( "Lo, yonder monster approacheth!" );
 		System.out.println();
-		System.out.println("Your Stats:");
-		System.out.println("*****************************************");
-		System.out.println("Wins: " + wins);
-		System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
-		System.out.println("Defense: " + pat.getDefense());
-		System.out.println("SP Defense: " + pat.getSpDefense());
-		System.out.println("Attack: " + pat.getAttack());
-		System.out.println("SP Attack: " + pat.getSpAttack());
-		System.out.println("*****************************************");
-	    smaug = new Monster();
+	    statSummary(pat);
+		smaug = new Monster();
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
 
@@ -232,15 +216,7 @@ public class YoRPG {
 			points += Shop.show(pat, points);
 			System.out.println();
 			try {
-					System.out.println("Your Stats:");
-					System.out.println("*****************************************");
-					System.out.println("Wins: " + wins);
-					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
-					System.out.println("Defense: " + pat.getDefense());
-					System.out.println("SP Defense: " + pat.getSpDefense());
-					System.out.println("Attack: " + pat.getAttack());
-					System.out.println("SP Attack: " + pat.getSpAttack());
-					System.out.println("*****************************************");
+					statSummary(pat);
 					System.out.println( "\nDo you feel lucky?" );
 					System.out.println( "\t1: Nay.\n\t2: Aye!" );
 					i = Integer.parseInt( in.readLine() );
@@ -325,6 +301,17 @@ public class YoRPG {
 		System.out.println("Your score was: " + score + ".");
 
 	}//end main
+	public void statSummary(Character c){
+		System.out.println("Your Stats:");
+		System.out.println("*****************************************");
+		System.out.println("Wins: " + wins);
+		System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
+		System.out.println("Defense: " + pat.getDefense());
+		System.out.println("SP Defense: " + pat.getSpDefense());
+		System.out.println("Attack: " + pat.getAttack());
+		System.out.println("SP Attack: " + pat.getSpAttack());
+		System.out.println("*****************************************");		
+	}
 
 }//end class YoRPG
 
