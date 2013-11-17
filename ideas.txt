@@ -1,7 +1,3 @@
 - Need one more player class
-- Need one more enemy class
-- Implement unlimited rounds
-- Need to make shop less OP
 ~~~~Probably not ~~~~
-- unique ability for each class
 - user customizable(stats) class?

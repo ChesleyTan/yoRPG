@@ -196,7 +196,7 @@ public class YoRPG {
 	int i = 1;
 	int d1, d2;
 
-	if (wins == 3 || wins == 6){
+	if (wins % 4 == 0 && wins != 0){
 		return bossPlayTurn();
 	}
 	if (pat.isAlive()){
