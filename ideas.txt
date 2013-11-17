@@ -1,2 +1,3 @@
+- ninja class, robot class
 - unique ability for each class
 - user customizable(stats) class?

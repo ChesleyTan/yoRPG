@@ -62,8 +62,9 @@ public abstract class Character{
 	public abstract void normalize();
 	public static String about(){
 		return "\nThe available classes are:\n" + 
-				"(1) Warrior: has high hp, attack, and defense but low multiplier rating\n" + 
-				"(2) Mage: has low hp, attack, and defense, but high multiplier rating\n" + 
+				"(1) Warrior: has high hp, attack, and defense but low special attack, special defense, and evasiveness.\n" + 
+				"(2) Mage: has high special attack, and special defense, but low hp, attack, defense, and moderate evasiveness.\n" +
+				"(3) Ninja: has moderate hp, attack, defense, and special defense, and low special attack, but high evasiveness.\n" + 
 				"Choose one of the above by entering its corresponding number.\n";
 	}	
 }

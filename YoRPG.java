@@ -82,6 +82,8 @@ public class YoRPG {
 		pat = new Warrior( name );
 	else if (playerClass == 2)
 		pat = new Mage(name);
+	else if (playerClass == 3)
+		pat = new Mage(name);
 
     }//end newGame()
 
