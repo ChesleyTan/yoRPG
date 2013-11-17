@@ -1,3 +1,1 @@
-- Need one more player class
-~~~~Probably not ~~~~
-- user customizable(stats) class?
+- What should we do with difficulty?
