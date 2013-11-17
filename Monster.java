@@ -8,7 +8,7 @@ public class Monster extends Character{
 		baseHp = hp;
 		attack = (int) (25 * Math.random()) + 40;
 		baseAttack = attack;
-		spAttack = 10;
+		spAttack = (int) (25 * Math.random()) + 40;
 		baseSpAttack = spAttack;
 		defense = 20;
 		baseDefense = defense;
@@ -18,7 +18,10 @@ public class Monster extends Character{
 		multiplier = 1;
 	}
 	public int primaryAttack(Character target){
-		return attack(target);
+		if ((int) (2 * Math.random()) == 0)
+			return attack(target);
+		else
+			return spAttack(target);
 	}
 	public void normalize(){}
 	public void specialize(){}

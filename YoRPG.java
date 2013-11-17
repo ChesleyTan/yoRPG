@@ -83,7 +83,9 @@ public class YoRPG {
 	else if (playerClass == 2)
 		pat = new Mage(name);
 	else if (playerClass == 3)
-		pat = new Mage(name);
+		pat = new Ninja(name);
+	else if (playerClass == 4)
+		pat = new Robot(name);
 
     }//end newGame()
 
@@ -153,7 +155,7 @@ public class YoRPG {
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
 				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster. " +
+				    "with its dying breath ye olde monster " +
 				    "laid a fatal blow upon thy skull." );
 		return false;
 	    }

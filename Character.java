@@ -64,7 +64,8 @@ public abstract class Character{
 		return "\nThe available classes are:\n" + 
 				"(1) Warrior: has high hp, attack, and defense but low special attack, special defense, and evasiveness.\n" + 
 				"(2) Mage: has high special attack, and special defense, but low hp, attack, defense, and moderate evasiveness.\n" +
-				"(3) Ninja: has moderate hp, attack, defense, and special defense, and low special attack, but high evasiveness.\n" + 
+				"(3) Ninja: has moderate hp, attack, defense, and special defense, and low special attack, but high evasiveness.\n" +
+				"(4) Robot: has very high hp, moderate attack, special attack, defense, special defense, and very low evasiveness. Hits randomly with attack or special attack.\n" +  
 				"Choose one of the above by entering its corresponding number.\n";
 	}	
 }
