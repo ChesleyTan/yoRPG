@@ -2,9 +2,9 @@ public class StatBar{
 	public static String getHpBar(Character c){
 		int stars = (int) ((c.getHp() * 1.0 / c.getBaseHp() * 100.0)/5);
 		int pct = (int)((c.getHp() * 1.0) / c.getBaseHp() * 100.0);
-		System.out.println("c.getHp(): " + c.getHp());
-		System.out.println("c.getBaseHp()" + c.getBaseHp());
-		System.out.println("Stars: " + stars);
+		//System.out.println("c.getHp(): " + c.getHp());
+		//System.out.println("c.getBaseHp()" + c.getBaseHp());
+		//System.out.println("Stars: " + stars);
 		if (stars == 0 && c.getHp() > 0) stars = 1;
 		if (stars < 0) stars = 0;
 		if (pct == 0  && c.getHp() > 0) pct = 1; 
