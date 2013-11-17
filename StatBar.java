@@ -5,7 +5,10 @@ public class StatBar{
 		System.out.println("c.getHp(): " + c.getHp());
 		System.out.println("c.getBaseHp()" + c.getBaseHp());
 		System.out.println("Stars: " + stars);
+		if (stars == 0 && c.getHp() > 0) stars = 1;
 		if (stars < 0) stars = 0;
+		if (pct == 0  && c.getHp() > 0) pct = 1; 
+		if (pct < 0) pct = 0;
 		return starrify(stars, pct);
 	}
 	

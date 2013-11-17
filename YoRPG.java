@@ -8,7 +8,7 @@ public class YoRPG {
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
     //change this constant to set number of encounters in a game
-    public final static int MAX_ENCOUNTERS = 10;
+    //public final static int MAX_ENCOUNTERS = 10;
 
     private Character pat;   
     private Character smaug; 
@@ -120,7 +120,7 @@ public class YoRPG {
 					System.out.println("Your Stats:");
 					System.out.println("*****************************************");
 					System.out.println("Wins: " + wins);
-					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)));
+					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0) + "%"));
 					System.out.println("Defense: " + pat.getDefense());
 					System.out.println("SP Defense: " + pat.getSpDefense());
 					System.out.println("Attack: " + pat.getAttack());
@@ -166,7 +166,7 @@ public class YoRPG {
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println("'Twas an epic battle, to be sure... ");
 		System.out.println("You cut The Balrog down,");
-		System.out.println("but ou were no match for the creature of the caves." );
+		System.out.println("but you were slain by the creature of the caves." );
 		score += 10;
 		return false;
 	    }
@@ -196,14 +196,13 @@ public class YoRPG {
 	int i = 1;
 	int d1, d2;
 
-	if (wins == 3 || wins == 6){
-		bossPlayTurn();
+	if (wins == 30 || wins == 6){
+		return bossPlayTurn();
 	}
 	if (pat.isAlive()){
-	if ( Math.random() >= ( difficulty / 3.0 ) )
-	    System.out.println( "\nNothing to see here. Move along!" );
+	//if ( Math.random() >= ( difficulty / 3.0 ) )
+	//    System.out.println( "\nNothing to see here. Move along!" );
 
-	else {
 	    System.out.println( "Lo, yonder monster approacheth!" );
 		System.out.println();
 		System.out.println("Your Stats:");
@@ -236,7 +235,7 @@ public class YoRPG {
 					System.out.println("Your Stats:");
 					System.out.println("*****************************************");
 					System.out.println("Wins: " + wins);
-					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)));
+					System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
 					System.out.println("Defense: " + pat.getDefense());
 					System.out.println("SP Defense: " + pat.getSpDefense());
 					System.out.println("Attack: " + pat.getAttack());
@@ -300,7 +299,6 @@ public class YoRPG {
 		System.out.println( "Ye olde self hath expired. You got dead." );
 		return false;
 	    }
-	}//end else
 	}
 	return true;
     }//end playTurn()
@@ -309,21 +307,24 @@ public class YoRPG {
 
     public static void main( String[] args ) {
 
-	YoRPG game = new YoRPG();
+		YoRPG game = new YoRPG();
 
-	int encounters = 0;
+		//int encounters = 0;
 
-	while( encounters <= MAX_ENCOUNTERS ) {
-	    if ( !game.playTurn() )
-		break;
-	    encounters++;
-	    System.out.println();
-	}
+		//while( encounters <= MAX_ENCOUNTERS ) {
+		//    if ( !game.playTurn() )
+		//	break;
+		//    encounters++;
+		//    System.out.println();
 
-	System.out.println( "Thy game doth be over." );
-	System.out.println("Your score was: " + score + ".");
+		while (game.playTurn()){
+			//Unlimited play	
+		}
 
-    }//end main
+		System.out.println( "Thy game doth be over." );
+		System.out.println("Your score was: " + score + ".");
+
+	}//end main
 
 }//end class YoRPG
 
