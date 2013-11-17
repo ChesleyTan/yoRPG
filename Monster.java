@@ -4,6 +4,7 @@
 //2013-11-14
 public class Monster extends Character{
 	public Monster(){
+		name = "Ye Olde Monster";
 		hp = 150;
 		baseHp = hp;
 		attack = (int) (25 * Math.random()) + 40;

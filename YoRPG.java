@@ -10,7 +10,7 @@ public class YoRPG {
     public final static int MAX_ENCOUNTERS = 5;
 
     private Character pat;   
-    private Monster smaug; 
+    private Character smaug; 
 
     private int moveCount;
     private boolean gameOver;
@@ -107,7 +107,7 @@ public class YoRPG {
 	    System.out.println( "Nothing to see here. Move along!" );
 
 	else {
-	    System.out.println( "Lo, yonder monster approacheth!" );
+	    System.out.println( "Lo, yonder enemy approacheth!" );
 
 	    smaug = new Monster();
 
@@ -146,20 +146,20 @@ public class YoRPG {
 		System.out.println(pat.getAttack());
 		System.out.println(pat.getSpAttack());
 		if (d1 == 0){
-			System.out.println("Ye Olde Monster evaded the attack!");
-			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println(smaug.getName() + " evaded the attack!");
+			System.out.println(smaug.getName() + " Health: \n" + StatBar.getHpBar(smaug) + "\n");
 		}
 		else{
 			System.out.println( pat.getName() + " dealt " + d1 +
 				    " points of damage.");
-			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println(smaug.getName() + " Health: \n" + StatBar.getHpBar(smaug) + "\n");
 		}
 		if (d2 == 0){
 			System.out.println(pat.getName() + " evaded the monster's attack!");
 			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
 		}
 		else{
-			System.out.println( "Ye Olde Monster hit back for " + d2 +
+			System.out.println( smaug.getName() + " hit back for " + d2 +
 				    " points of damage.");
 			System.out.println(pat.getName() + " Health: \n" + StatBar.getHpBar(pat));
 	    }
@@ -169,15 +169,15 @@ public class YoRPG {
 	    //option 1: you & the monster perish
 	    if ( !smaug.isAlive() && !pat.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
-				    "You cut ye olde monster down, but " +
-				    "with its dying breath ye olde monster " +
+				    "You cut ye enemy down, but " +
+				    "with its dying breath ye enemy " +
 				    "laid a fatal blow upon thy skull." );
 		score += 10;
 		return false;
 	    }
 	    //option 2: you slay the beast
 	    else if ( !smaug.isAlive() ) {
-		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
+		System.out.println( "HuzzaaH! " + smaug.getName() + " hath been slain!" );
 		score += 10;
 		points += 10;
 		return true;
