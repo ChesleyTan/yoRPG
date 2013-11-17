@@ -1,0 +1,7 @@
+Game Strategy 1:
+	Start with warrior
+	Every kill, go to shop and buy defense potion
+	If health low, buy heal potion instead
+	Repeat steps 2 & 3
+	???
+	PROFIT!
