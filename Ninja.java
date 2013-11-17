@@ -1,17 +1,17 @@
 public class Ninja extends Character{
 	public Ninja(String name){
 		this.name = name;
-		hp = 100;
+		hp = 110;
 		baseHp = hp;
-		attack = 50;
+		attack = 55;
 		baseAttack = attack;
 		spAttack = 30;
 		baseSpAttack = spAttack;
-		defense = 30;
+		defense = 35;
 		baseDefense = defense;
-		spDefense = 30;
+		spDefense = 35;
 		baseSpDefense = spDefense;
-		evasiveness = 20;
+		evasiveness = 25;
 		multiplier = 1.0;
 	}
 	public int primaryAttack(Character target){

@@ -11,9 +11,9 @@ public class Mage extends Character{
 		baseAttack = attack;
 		spAttack = 80;
 		baseSpAttack = spAttack;
-		defense = 25;
+		defense = 30;
 		baseDefense = defense;
-		spDefense = 50;
+		spDefense = 60;
 		baseSpDefense = spDefense;
 		evasiveness = 5;
 		multiplier = 1.0;
