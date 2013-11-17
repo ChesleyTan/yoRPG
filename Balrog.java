@@ -17,6 +17,29 @@ public class Balrog extends Character{
 		evasiveness = 5;
 		multiplier = 1.5;
 	}
+	public Balrog(int difficulty, int round){
+		this();
+		if (difficulty == 2){
+			multiplier += (round * 2.0 / 100.0);
+			defense += (round * 2);
+			baseDefense = defense;
+			spDefense += (round * 2);
+			baseSpDefense = spDefense;
+		}
+		else if (difficulty == 3){
+			multiplier += (round * 3.0 / 100.0);
+			defense += (round * 3);
+			baseDefense = defense;
+			spDefense += (round * 3);
+			baseSpDefense = spDefense;
+		}
+		else {
+			defense += (round);
+			baseDefense = defense;
+			spDefense += (round);
+			baseSpDefense = spDefense;
+		}
+	}
 	
 	public int primaryAttack(Character target){
 		if ((int) (2 * Math.random()) == 0)

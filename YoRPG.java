@@ -95,7 +95,7 @@ public class YoRPG {
 	public boolean bossPlayTurn() {
 		int i = 1;
 		int d1, d2;
-		smaug = new Balrog();
+		smaug = new Balrog(difficulty, wins);
 		
 		System.out.println( "Your braveries have awoken the Balrog!");
 		System.out.println("Beware traveller, for the Balrog isn't as meager as the monsters!");
@@ -204,7 +204,7 @@ public class YoRPG {
 	    System.out.println( "Lo, yonder monster approacheth!" );
 		System.out.println();
 	    statSummary(pat);
-		smaug = new Monster();
+		smaug = new Monster(difficulty, wins);
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
 
