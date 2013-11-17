@@ -7,7 +7,8 @@ public class Shop{
 		System.out.println( "(1)[10 points] Heal Potion - Heals health to full.\n" + 
 				"(2)[10 points] Strength Potion - Increases attack and special attack.\n" +
 				"(3)[10 points] Defense Potion - Increases defense and special defense.\n" +
-				"(4) Leave the shop.");
+				"(4)[200 points] Transform to Hero class.\n" +
+				"(5) Leave the shop.");
 				
 		System.out.print("Your selection: ");
 		int i = scan1.nextInt();
@@ -28,6 +29,9 @@ public class Shop{
 			c.setSpDefense(c.getSpDefense() + 10);
 			c.setBaseSpDefense(c.getBaseSpDefense() + 10);
 			return -10;
+		}
+		else if (i == 4 && pointsAvailable >= 200){
+			return -200;
 		}
 		else{
 			return 0;
