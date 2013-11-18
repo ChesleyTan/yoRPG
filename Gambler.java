@@ -23,8 +23,7 @@ public class Gambler extends Character{
 		if ( ((int) (100 * Math.random()) + 1) < target.getEvasiveness()){
 			damage = 0;
 		}
-		else
-			target.lowerHP(damage);
+		target.lowerHP(damage);
 		return damage;
 	}
 	

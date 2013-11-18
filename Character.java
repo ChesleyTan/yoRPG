@@ -104,8 +104,7 @@ public abstract class Character{
 		if ( ((int) (100 * Math.random()) + 1) < target.getEvasiveness()){
 			damage = 0;
 		}
-		else
-			target.lowerHP(damage);
+		target.lowerHP(damage);
 		return damage;
 	}
 	
@@ -117,8 +116,7 @@ public abstract class Character{
 		if ( ((int) (100 * Math.random()) + 1) < target.getEvasiveness()){
 			damage = 0;
 		}
-		else
-			target.lowerHP(damage);
+		target.lowerHP(damage);
 		return damage;
 	}
 	
