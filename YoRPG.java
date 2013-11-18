@@ -317,11 +317,11 @@ public class YoRPG {
 		System.out.println("Your Stats:");
 		System.out.println("*****************************************");
 		System.out.println("Wins: " + wins);
-		System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
-		System.out.println("Defense: " + pat.getDefense());
-		System.out.println("SP Defense: " + pat.getSpDefense());
-		System.out.println("Attack: " + pat.getAttack());
-		System.out.println("SP Attack: " + pat.getSpAttack());
+		System.out.println("Health: " + ((int) (c.getHp() * 1.0 / c.getBaseHp() * 100.0)) + "%");
+		System.out.println("Defense: " + c.getDefense());
+		System.out.println("SP Defense: " + c.getSpDefense());
+		System.out.println("Attack: " + c.getAttack());
+		System.out.println("SP Attack: " + c.getSpAttack());
 		System.out.println("*****************************************");		
 	}
 
