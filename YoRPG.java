@@ -99,8 +99,10 @@ public class YoRPG {
 		int d1, d2;
 		smaug = new Balrog(difficulty, wins);
 		
-		System.out.println( "Your braveries have awoken the Balrog!");
+		System.out.println( "\nYour braveries have awoken the Balrog!");
 		System.out.println("Beware traveller, for the Balrog isn't as meager as the monsters!");
+		System.out.println();
+		statSummary(pat);
 
 	    while( smaug.isAlive() && pat.isAlive() ) {
 
