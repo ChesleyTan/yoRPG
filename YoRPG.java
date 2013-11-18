@@ -82,7 +82,7 @@ public class YoRPG {
 	//instantiate the player's character
 	//Note: default playerClass is 1 because it was initialized as such
 	if (playerClass == 1)
-		pat = new Warrior( name );
+		pat = new Warrior(name);
 	else if (playerClass == 2)
 		pat = new Mage(name);
 	else if (playerClass == 3)
@@ -91,6 +91,8 @@ public class YoRPG {
 		pat = new Robot(name);
 	else if (playerClass == 5)
 		pat = new Gambler(name);
+	else
+		pat = new Warrior(name);
 
     }//end newGame()
 
