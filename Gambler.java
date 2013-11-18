@@ -1,3 +1,7 @@
+// Chesley Tan, Johnathan Yan, Christopher Kim
+// Pd 9
+// HW25
+// 2013-11-17
 public class Gambler extends Character{
 	public Gambler(String name){
 		this.name = name;
