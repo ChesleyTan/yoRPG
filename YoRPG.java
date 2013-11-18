@@ -4,6 +4,7 @@ import java.util.*;
 public class YoRPG {
 
 	static int wins = 0;
+	static int playerClass = 1; //Default class is 1, which is warrior.
 	
     // ~~~~~~~~~~~ INSTANCE VARIABLES ~~~~~~~~~~~
 
@@ -47,7 +48,6 @@ public class YoRPG {
 
 	String s;
 	String name = "";
-	int playerClass = 1; //Default class is 1, which is warrior.
 	s = "Welcome to Ye Olde RPG!\n";
 
 	s += "\nChoose your difficulty: \n";
@@ -89,6 +89,8 @@ public class YoRPG {
 		pat = new Ninja(name);
 	else if (playerClass == 4)
 		pat = new Robot(name);
+	else if (playerClass == 5)
+		pat = new Gambler(name);
 
     }//end newGame()
 
@@ -172,7 +174,10 @@ public class YoRPG {
 	    else if ( !smaug.isAlive() ) {
 		System.out.println( "HuzzaaH! You raise your fists and crush the skull of the Balrog!" );
 		score += 10;
-		points += 15;
+		if (playerClass == 5){
+			points += 20;}
+		else{
+			points += 15;}
 		wins++;
 		return true;
 	    }
@@ -278,7 +283,10 @@ public class YoRPG {
 	    else if ( !smaug.isAlive() ) {
 		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
 		score += 10;
-		points += 15;
+		if (playerClass == 5){
+			points += 20;}
+		else{
+			points += 15;}
 		wins++;
 		return true;
 	    }
@@ -317,11 +325,11 @@ public class YoRPG {
 		System.out.println("Your Stats:");
 		System.out.println("*****************************************");
 		System.out.println("Wins: " + wins);
-		System.out.println("Health: " + ((int) (c.getHp() * 1.0 / c.getBaseHp() * 100.0)) + "%");
-		System.out.println("Defense: " + c.getDefense());
-		System.out.println("SP Defense: " + c.getSpDefense());
-		System.out.println("Attack: " + c.getAttack());
-		System.out.println("SP Attack: " + c.getSpAttack());
+		System.out.println("Health: " + ((int) (pat.getHp() * 1.0 / pat.getBaseHp() * 100.0)) + "%");
+		System.out.println("Defense: " + pat.getDefense());
+		System.out.println("SP Defense: " + pat.getSpDefense());
+		System.out.println("Attack: " + pat.getAttack());
+		System.out.println("SP Attack: " + pat.getSpAttack());
 		System.out.println("*****************************************");		
 	}
 
