@@ -331,7 +331,7 @@ public class YoRPG { // Driver
 		System.out.println("Your score was: " + score + ".");
 
 	}//end main
-	public void statSummary(Character c){ // A display of your stats after every turn of the battle
+	public void statSummary(Character c){ // A display of your stats after every battle
 		System.out.println("Your Stats:");
 		System.out.println("*****************************************");
 		System.out.println("Wins: " + wins);
