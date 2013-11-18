@@ -5,3 +5,13 @@ Game Strategy 1:
 	Repeat steps 2 & 3
 	???
 	PROFIT!
+Game Strategy 2:
+	Start with warrior
+	Save up points for boss battle
+	If health low, buy heal potion
+	When boss battle, spam heal potions
+	Repeat 2, 3, & 4
+	???
+	PROFIT!
+Game Strategy 3:
+	Stategy 1 except with robot
