@@ -2,7 +2,7 @@
 //pd 9
 //HW#25
 //2013-11-14
-public class Balrog extends Character{
+public class Balrog extends Character{ // "Boss stages for our game, Boss named Balrog
 	public Balrog(){
 		hp = 185;
 		baseHp = hp;
