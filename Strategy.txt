@@ -15,3 +15,5 @@ Game Strategy 2:
 	PROFIT!
 Game Strategy 3:
 	Stategy 1 except with robot
+Game Strategy 4:
+	Gambler OP
