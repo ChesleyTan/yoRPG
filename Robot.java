@@ -2,7 +2,7 @@
 // Pd 9
 // HW
 // 11-17-13
-public class Robot extends Character{
+public class Robot extends Character{ // new Robot subclass for Character superclass
 	public Robot(String name){
 		this.name = name;
 		hp = 200;
