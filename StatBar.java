@@ -1,10 +1,10 @@
 // Chesley Tan, Johnathan Yan, Christopher Kim
 // Pd9
-// HW25
+// HW26
 // 2013-11-17
 
-public class StatBar{ // A health bar is shown after every turn
-	public static String getHpBar(Character c){
+public class StatBar{ 
+	public static String getHpBar(Character c){// A health bar is shown after every turn
 		int stars = (int) ((c.getHp() * 1.0 / c.getBaseHp() * 100.0)/5);
 		int pct = (int)((c.getHp() * 1.0) / c.getBaseHp() * 100.0);
 		//System.out.println("c.getHp(): " + c.getHp());

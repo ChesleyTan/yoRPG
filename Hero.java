@@ -1,7 +1,7 @@
-// Christopher Kim
+// Chesley Tan, Johnathan Yan, Christopher Kim
 // Pd9
-// HW25
-// 2013-11-25
+// HW26
+// 2013-11-17
 public class Hero extends Character{ // Hero, an option in the shop where you become... as they say, "OP!"
 	public Hero(String name, int attack, int spAttack, int defense, int spDefense){
 		this.name = name;

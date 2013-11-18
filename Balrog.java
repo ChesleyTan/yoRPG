@@ -1,7 +1,7 @@
-//Chesley Tan
-//pd 9
-//HW#25
-//2013-11-14
+// Chesley Tan, Johnathan Yan, Christopher Kim
+// Pd 9
+// HW26
+// 2013-11-17
 public class Balrog extends Character{ // "Boss stages for our game, Boss named Balrog
 	public Balrog(){
 		hp = 185;

@@ -1,3 +1,7 @@
+// Chesley Tan, Johnathan Yan, Christopher Kim
+// Pd 9
+// HW26
+// 2013-11-17
 public class Ninja extends Character{
 	public Ninja(String name){
 		this.name = name;

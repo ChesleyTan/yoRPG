@@ -1,7 +1,7 @@
 // Chesley Tan, Johnathan Yan, Christopher Kim
 // Pd 9
-// HW
-// 11-17-13
+// HW26
+// 2013-11-17
 public class Robot extends Character{ // new Robot subclass for Character superclass
 	public Robot(String name){
 		this.name = name;
