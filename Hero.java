@@ -1,4 +1,8 @@
-public class Hero extends Character{
+// Christopher Kim
+// Pd9
+// HW25
+// 2013-11-25
+public class Hero extends Character{ // Hero, an option in the shop where you become... as they say, "OP!"
 	public Hero(String name, int attack, int spAttack, int defense, int spDefense){
 		this.name = name;
 		hp = 500;
@@ -32,7 +36,7 @@ public class Hero extends Character{
 		defense = baseDefense;
 		spDefense = baseSpDefense;
 	}
-	public static Character transform(Character c){
+	public static Character transform(Character c){ //TRANSFORM BABY
 		c = new Hero(c.getName(),c.getAttack(),c.getSpAttack(),c.getDefense(),c.getSpDefense());
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("Your body starts to glow a bright bluish-white as your enemy stands petrified. \n" + 
