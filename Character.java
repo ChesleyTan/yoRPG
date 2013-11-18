@@ -108,6 +108,7 @@ public abstract class Character{
 			target.lowerHP(damage);
 		return damage;
 	}
+	
 	public int spAttack(Character target){
 		int damage = (int) (5 * Math.random()) + (int) (spAttack * multiplier) - target.getSpDefense();
 		if (damage <= 0){
@@ -120,6 +121,7 @@ public abstract class Character{
 			target.lowerHP(damage);
 		return damage;
 	}
+	
 	public abstract int primaryAttack(Character target);// Differentiates whether attack or spAttack should be used
 	public abstract void specialize();
 	public abstract void normalize();
@@ -129,6 +131,8 @@ public abstract class Character{
 				"(2) Mage: has high special attack, and special defense, but low hp, attack, defense, and moderate evasiveness.\n" +
 				"(3) Ninja: has moderate hp, attack, defense, and special defense, and low special attack, but high evasiveness.\n" +
 				"(4) Robot: has very high hp, moderate attack, special attack, defense, special defense, and very low evasiveness. Hits randomly with attack or special attack.\n" +  
+				"(5) Gambler: has slightly below moderate hp, attack, defense, special defense, very high evasivenes. Attack damage is random and disregards defense,you may get lucky, you may not. " +
+				"Gamblers get an extra 5 points per round.\n\n" +
 				"Choose one of the above by entering its corresponding number.\n";
 	}	
 }
