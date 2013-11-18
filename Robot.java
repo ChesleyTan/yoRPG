@@ -1,3 +1,7 @@
+// Chesley Tan, Johnathan Yan, Christopher Kim
+// Pd 9
+// HW
+// 11-17-13
 public class Robot extends Character{
 	public Robot(String name){
 		this.name = name;
