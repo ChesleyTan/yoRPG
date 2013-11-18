@@ -1,7 +1,12 @@
+// Chesley Tan, Johnathan Yan, Christopher Kim
+// Pd 9
+// HW25
+// 2013-11-17
+
 import java.io.*;
 import java.util.*;
 
-public class YoRPG {
+public class YoRPG { // Driver
 
 	static int wins = 0;
 	static int playerClass = 1; //Default class is 1, which is warrior.
@@ -81,6 +86,7 @@ public class YoRPG {
 
 	//instantiate the player's character
 	//Note: default playerClass is 1 because it was initialized as such
+	// New Characters added here
 	if (playerClass == 1)
 		pat = new Warrior(name);
 	else if (playerClass == 2)
@@ -96,7 +102,7 @@ public class YoRPG {
 
     }//end newGame()
 
-	public boolean bossPlayTurn() {
+	public boolean bossPlayTurn() { // Boss mode, after every 3 wins an encounter with Balrog!
 		int i = 1;
 		int d1, d2;
 		smaug = new Balrog(difficulty, wins);
@@ -325,7 +331,7 @@ public class YoRPG {
 		System.out.println("Your score was: " + score + ".");
 
 	}//end main
-	public void statSummary(Character c){
+	public void statSummary(Character c){ // A display of your stats after every turn of the battle
 		System.out.println("Your Stats:");
 		System.out.println("*****************************************");
 		System.out.println("Wins: " + wins);
