@@ -1,6 +1,6 @@
 //Chesley Tan
 //pd 9
-//HW#25
+//HW#26
 //2013-11-14
 public class Monster extends Character{
 	public Monster(){
