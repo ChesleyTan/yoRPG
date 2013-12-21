@@ -16,7 +16,7 @@ public class Shop{ // An option to go to if you need to regain health or strengt
 				"(5) Leave the shop.");
 				
 		System.out.print("Your selection: ");
-		int i = scan1.nextInt();
+		int i = InputValidator.nextValidInt(scan1,1,5);
 		if (i == 1 && pointsAvailable >= 10){ // Heals health to full
 			c.setHp(c.getBaseHp());
 			return -10;				
@@ -38,7 +38,11 @@ public class Shop{ // An option to go to if you need to regain health or strengt
 		else if (i == 4 && pointsAvailable >= 200){ // TRANSFORMATION HERO TIME
 			return -200;
 		}
+		else if (i == 5){
+			return 0;
+		}
 		else{
+			System.out.println("You cannot afford that.");
 			return 0;
 		}
 		
