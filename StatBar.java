@@ -2,6 +2,8 @@
 // Pd9
 // HW26
 // 2013-11-17
+import characters.Character; // Avoid ambiguity with java.lang.Character 
+import characters.*;
 
 public class StatBar{ 
 	public static String getHpBar(Character c){// A health bar is shown after every turn

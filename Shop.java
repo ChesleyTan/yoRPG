@@ -4,7 +4,8 @@
 // 2013-11-17
 
 import java.util.Scanner;
-
+import characters.Character; // Avoid ambiguity with java.lang.Character 
+import characters.*;
 public class Shop{ // An option to go to if you need to regain health or strengthen yourself, though it costs!
 	public static int show(Character c, int pointsAvailable){
 		Scanner scan1 = new Scanner(System.in);

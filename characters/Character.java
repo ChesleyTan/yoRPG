@@ -2,6 +2,7 @@
 // Pd 9
 // HW26
 // 2013-11-17
+package characters;
 public abstract class Character{
 	protected String name;
 	protected int hp, attack, spAttack, defense, spDefense;

@@ -2,6 +2,7 @@
 // Pd9
 // HW26
 // 2013-11-17
+package characters;
 public class Gambler extends Character{
 	public Gambler(String name){
 		this.name = name;

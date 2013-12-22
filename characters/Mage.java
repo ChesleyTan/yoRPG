@@ -2,6 +2,7 @@
 // Pd 9
 // HW26
 // 2013-11-17
+package characters;
 public class Mage extends Character{
 	public Mage(String name){
 		this.name = name;

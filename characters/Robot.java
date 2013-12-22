@@ -2,6 +2,7 @@
 // Pd 9
 // HW26
 // 2013-11-17
+package characters;
 public class Robot extends Character{ // new Robot subclass for Character superclass
 	public Robot(String name){
 		this.name = name;

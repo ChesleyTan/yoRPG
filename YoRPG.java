@@ -3,8 +3,9 @@
 // HW26
 // 2013-11-17
 
-import java.io.*;
 import java.util.Scanner;
+import characters.Character; // Avoid ambiguity with java.lang.Character 
+import characters.*;
 
 public class YoRPG { // Driver
 
@@ -17,7 +18,7 @@ public class YoRPG { // Driver
     //public final static int MAX_ENCOUNTERS = 10;
 
     private Character player1;   
-    private Character smaug; 
+    private Character enemy1; 
 
     private int moveCount;
     private boolean gameOver;
@@ -98,14 +99,14 @@ public class YoRPG { // Driver
 	public boolean bossPlayTurn() { // Boss mode, after every 3 wins an encounter with Balrog!
 		int i = 1; // default choice for attack prompt
 		int d1, d2;
-		smaug = new Balrog(difficulty, wins);
+		enemy1 = new Balrog(difficulty, wins);
 		
 		System.out.println( "\nYour braveries have awoken the Balrog!");
 		System.out.println("Beware traveller, for the Balrog isn't as meager as the monsters!");
 		System.out.println();
 		statSummary(player1);
 
-	    while( smaug.isAlive() && player1.isAlive() ) {
+	    while( enemy1.isAlive() && player1.isAlive() ) {
 
 		
 		// Give user the option of preparing in a ready stance:
@@ -131,18 +132,18 @@ public class YoRPG { // Driver
 		else
 		    player1.normalize();
 
-		d1 = player1.primaryAttack( smaug );
-		d2 = smaug.primaryAttack( player1 );
+		d1 = player1.primaryAttack( enemy1 );
+		d2 = enemy1.primaryAttack( player1 );
 
 		System.out.println("=========================================");
 		if (d1 == 0){
 			System.out.println("The Balrog evaded the attack!");
-			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(enemy1) + "\n");
 		}
 		else{
 			System.out.println( player1.getName() + " dealt " + d1 +
 				    " points of damage.");
-			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("The Balrog Health: \n" + StatBar.getHpBar(enemy1) + "\n");
 		}
 		if (d2 == 0){
 			System.out.println(player1.getName() + " evaded the monster's attack!");
@@ -157,7 +158,7 @@ public class YoRPG { // Driver
 		}//end while
 		
 		//option 1: you & the monster perish
-	    if ( !smaug.isAlive() && !player1.isAlive() ) {
+	    if ( !enemy1.isAlive() && !player1.isAlive() ) {
 		System.out.println("'Twas an epic battle, to be sure... ");
 		System.out.println("You cut The Balrog down,");
 		System.out.println("but you were slain by the creature of the caves." );
@@ -165,7 +166,7 @@ public class YoRPG { // Driver
 		return false;
 	    }
 	    //option 2: you slay the beast
-	    else if ( !smaug.isAlive() ) {
+	    else if ( !enemy1.isAlive() ) {
 		System.out.println( "HuzzaaH! You raise your fists and crush the skull of the Balrog!" );
 		score += 10;
 		if (playerClass == 5){
@@ -203,9 +204,9 @@ public class YoRPG { // Driver
 	    System.out.println( "Lo, yonder monster approacheth!" );
 		System.out.println();
 	    statSummary(player1);
-		smaug = new Monster(difficulty, wins);
+		enemy1 = new Monster(difficulty, wins);
 
-	    while( smaug.isAlive() && player1.isAlive() ) {
+	    while( enemy1.isAlive() && player1.isAlive() ) {
 
 		// Give user the option of preparing in a ready stance:
 		// If you land a hit, you incur greater damage,
@@ -230,18 +231,18 @@ public class YoRPG { // Driver
 		else
 		    player1.normalize();
 
-		d1 = player1.primaryAttack( smaug );
-		d2 = smaug.primaryAttack( player1 );
+		d1 = player1.primaryAttack( enemy1 );
+		d2 = enemy1.primaryAttack( player1 );
 
 		System.out.println("=========================================");
 		if (d1 == 0){
 			System.out.println("Ye Olde Monster evaded the attack!");
-			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(enemy1) + "\n");
 		}
 		else{
 			System.out.println( player1.getName() + " dealt " + d1 +
 				    " points of damage.");
-			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(smaug) + "\n");
+			System.out.println("Ye Olde Monster Health: \n" + StatBar.getHpBar(enemy1) + "\n");
 		}
 		if (d2 == 0){
 			System.out.println(player1.getName() + " evaded the enemy's attack!");
@@ -256,7 +257,7 @@ public class YoRPG { // Driver
 		}//end while
 
 	    //option 1: you & the monster perish
-	    if ( !smaug.isAlive() && !player1.isAlive() ) {
+	    if ( !enemy1.isAlive() && !player1.isAlive() ) {
 		System.out.println( "'Twas an epic battle, to be sure... " + 
 				    "You cut ye olde monster down, but " +
 				    "with its dying breath ye olde monster " +
@@ -265,7 +266,7 @@ public class YoRPG { // Driver
 		return false;
 	    }
 	    //option 2: you slay the beast
-	    else if ( !smaug.isAlive() ) {
+	    else if ( !enemy1.isAlive() ) {
 		System.out.println( "HuzzaaH! Ye olde monster hath been slain!" );
 		score += 10;
 		if (playerClass == 5){

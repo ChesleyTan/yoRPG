@@ -2,6 +2,7 @@
 //pd 9
 //HW#26
 //2013-11-14
+package characters;
 public class Monster extends Character{
 	public Monster(){
 		hp = 150;
